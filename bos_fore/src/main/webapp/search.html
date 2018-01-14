@@ -1,0 +1,48 @@
+<!--
+	描述：运单查询
+-->
+<link rel="stylesheet" type="text/css" href="css/stylesearch.css">
+
+<section class="searchbox">
+	<div class="container">
+		<!-- nav -->
+
+		<div class="searcharea">
+			<div class="areatitle">
+				<h4><span class="title">运单查询</span></h4>
+			</div>
+			<form class="form">
+				<div class="form-inline">
+					<input type="text" class="form-control" id="exampleInputAmount" placeholder="输入查询的运单号码，多个运单号请以逗号隔开，最多输入20个运单号码查询">
+					<button type="submit" class="btn btn-danger">查询</button>
+				</div>
+			</form>
+		</div>
+
+		<div class="partline"></div>
+
+		<div class="areatitle">
+			<h4><span class="title">查询结果/查询历史</span></h4>
+		</div>
+
+		<div class="btnarea">
+			<a href="##" class="btn btn-danger">订阅选中</a>
+		</div>
+
+	</div>
+</section>
+
+<section class="searchcontent container">
+	<div class="ordertable">
+		<table class="table table-striped">
+			<tr>
+				<td><input type="checkbox" id="receiver">　收件人姓名</td>
+				<td>运单最新状态</td>
+				<td class="">操作</td>
+			</tr>
+		</table>
+		<table class="table table-bordered table-striped" id="ordercontent">
+
+		</table>
+	</div>
+</section>

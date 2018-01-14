@@ -1,0 +1,6 @@
+[{
+	"id":"1","wayBill":{"wayBillNum":"123456", "sendName":"张三","sendAddress":"北京市昌平区建材城西路金燕龙办公楼","recName":"李四","recAddress":"北京市海淀区中关村软件园9号国际软件大厦102室"},"status":null,"outletAddress":null,"transferInfo":null
+},
+{
+	"id":"2","wayBill":{"wayBillNum":"413123", "sendName":"张三","sendAddress":"北京市昌平区修正大厦401","recName":"李四","recAddress":"上海闵行区浦江智谷A座131"},"status":null,"outletAddress":null,"transferInfo":null
+}]

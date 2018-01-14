@@ -1,0 +1,38 @@
+{
+	"totalCount": 10,
+	"pageData": [
+		{
+			"id": 1,
+			"titleImg": "images/show/suyun/promotion1.png",
+			"title": "进入六月，中俄跨境电商物流服务又添 喜讯：速运快递特惠开通了中国大陆...",
+			"startDate": "20xx.xx.xx",
+			"endDate": "20xx.xx.xx",
+			"activescope": "中国大陆",
+			"status": "进行中"
+		}, {
+			"id": 2,
+			"titleImg": "images/show/suyun/promotion2.png",
+			"title": "疯狂夏寄，速运三重惠，给利益享不停 手机支付运费返5%",
+			"startDate": "20xx.xx.xx",
+			"endDate": "20xx.xx.xx",
+			"activescope": "中国大陆",
+			"status": "进行中"
+		}, {
+			"id": 3,
+			"titleImg": "images/show/suyun/promotion3.png",
+			"title": "速运快递再开通中国至印尼、印度、柬 埔寨三国快递服务！",
+			"startDate": "20xx.xx.xx",
+			"endDate": "20xx.xx.xx",
+			"activescope": "中国大陆",
+			"status": "进行中"
+		}, {
+			"id": 4,
+			"titleImg": "images/show/suyun/promotion4.png",
+			"title": "关于杭州举办“20国集团领导人第1x次 峰会”期间我司收派服务调整的通知...",
+			"startDate": "20xx.xx.xx",
+			"endDate": "20xx.xx.xx",
+			"activescope": "中国大陆",
+			"status": "进行中"
+		}
+	]
+}

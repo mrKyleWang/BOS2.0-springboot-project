@@ -1,0 +1,92 @@
+<!--
+	描述：快件管理
+-->
+<link rel="stylesheet" type="text/css" href="css/styleexpress.css">
+
+<div class="express">
+	<div class="container">
+		<div class="col-md-2 tab-title ">
+			<ul class="nav nav-tab vertical-tab" role="tablist" id="vtab">
+				<li role="presentation" class="allmanages active">
+					<a href="#aa" aria-controls="aa" role="tab" data-toggle="tab">全部快件</a>
+				</li>
+
+				<li role="presentation" class="pieceorder">
+					<a href="#bb" aria-controls="bb" role="tab" data-toggle="tab"><span>·</span> 待取件（0）</a>
+				</li>
+				<li role="presentation" class="pieceorder">
+					<a href="#cc" aria-controls="cc" role="tab" data-toggle="tab">· 运送中（0）</a>
+				</li>
+				<li role="presentation" class="pieceorder">
+					<a href="#dd" aria-controls="dd" role="tab" data-toggle="tab">· 已签收（0）</a>
+				</li>
+				<li role="presentation" class="pieceorder">
+					<a href="#ee" aria-controls="ee" role="tab" data-toggle="tab">· 异常件（0）</a>
+				</li>
+
+				<li role="presentation" class="orderrecord">
+					<a href="#ff" aria-controls="ff" role="tab" data-toggle="tab">下单记录</a>
+				</li>
+			</ul>
+		</div>
+		<!-- Tab panes -->
+		<div class="col-md-10 tabcontent">
+			<div class="tab-content vertical-tab-content">
+				<div role="tabpanel" class="tab-pane active" id="aa">
+
+					<div class="tools">
+						<div class="col-md-3">
+							<div class="form-group">
+								<select class="form-control">
+									<option>全单</option>
+									<option>我收到的快件</option>
+									<option>我寄出的快件</option>
+
+								</select>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<form class="form">
+								<div class="form-group">
+
+									<div class="input-group">
+
+										<input type="text" class="form-control" id="exampleInputAmount" placeholder="运单号">
+										<div class="input-group-addon">查询</div>
+									</div>
+								</div>
+
+							</form>
+
+						</div>
+						<div class="col-md-3 choose">
+							<a href="javascript:void(0)">精确筛选/导出运单</a>
+						</div>
+
+					</div>
+
+					<div class="ordertable">
+						<table class="table table-striped">
+							<tr>
+								<td>运单号</td>
+								<td>寄件人/ 收件人</td>
+								<td>时间</td>
+								<td class="">操作</td>
+							</tr>
+						</table>
+						<table class="table table-bordered table-striped" id="expresscontent">
+
+						</table>
+
+					</div>
+
+				</div>
+				<div role="tabpanel" class="tab-pane" id="bb">待取件</div>
+				<div role="tabpanel" class="tab-pane" id="cc">运送中</div>
+				<div role="tabpanel" class="tab-pane" id="dd">已签收</div>
+				<div role="tabpanel" class="tab-pane" id="ee">异常件</div>
+				<div role="tabpanel" class="tab-pane" id="ff">下单记录</div>
+			</div>
+		</div>
+	</div>
+</div>

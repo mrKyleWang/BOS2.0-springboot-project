@@ -1,0 +1,188 @@
+body {
+	background: #F2F2F2
+}
+form .help-block{color:#d9534f}
+.loginbox {
+	background: #fff;
+	font-family: "微软雅黑";
+	padding: 2% 0;
+}
+.loginbox .form-horizontal{padding: 5px;}
+.form-group .forget {
+	float: right
+}
+
+b {
+	color: red
+}
+
+.col-sm-3 .btn-default {
+	border-radius: 0;
+}
+
+.logintitle {
+	font-family: "微软雅黑";
+	font-size: 18px;
+	line-height: 50px;
+	padding-left: 10px;
+}
+
+.loginnav .navbar-default {
+	margin-bottom: 0;
+	padding: 10px;
+	background: #fff;
+}
+
+.loginnav .navbar-brand {
+	padding: 0
+}
+
+.mainlogin {
+	background: url(../images/show/suyun/loginbg.png) no-repeat;
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	background-position: 0 0;
+}
+
+.clearfix {
+	clear: both
+}
+
+.song {
+	font-family: "宋体";
+}
+
+.loginbox h4 {
+	font-weight: bold;
+}
+
+.loginbox .form-control {
+	border-radius: 0;
+}
+
+.loginbox .btn-danger {
+	padding: 6px 46%;
+	border-radius: 0;
+}
+
+.form-group .control-label {
+	font-weight: normal;
+}
+
+.loginbox .text-right,
+.loginbox .size12 {
+	font-family: "宋体";
+	color: #666;
+	font-size: 12px;
+}
+
+.loginbox .text-right {
+	padding: 15px 0 10px 0;
+}
+
+section .container {
+	padding: 2% 0;
+	overflow: hidden;
+}
+
+.signup {
+	overflow: hidden;
+	border: 1px solid #D1D1D1;
+	font-family: "微软雅黑";
+}
+
+.signupbox {
+	padding: 30px;
+}
+
+.form-group {
+	overflow: hidden;
+	font-size: 12px;
+}
+
+.signupbox {
+	overflow: hidden;
+}
+
+.signupbox .form-group label {
+	margin-top: 5px;
+}
+
+.signupbox .signbtn .btn-danger {
+	padding: 6px 44%;
+}
+
+.signup .signintro {
+	font-size: 12px;
+	padding: 9% 10%;
+	border-left: 1px solid #d1d1d1;
+}
+
+.signup .redtext {
+	color: red;
+	padding: 15px 0
+}
+
+.signup .introbox {
+	padding: 5% 0;
+}
+
+.headnav {
+	margin: 20px;
+}
+
+.headnav .signnav {
+	font-family: "微软雅黑";
+	font-size: 16px;
+}
+
+.signnav .active {
+	background: url(../images/icon/suyun/sign01.png) no-repeat;
+	padding: 9px 15%;
+}
+
+.signup .yanzheng {
+	padding: 25px 30px;
+	font-size: 14px;
+	font-family: "宋体";
+	color: #888;
+}
+
+.yanzheng .telphone {
+	font-size: 18px;
+	font-family: "微软雅黑";
+}
+
+.yanzheng .vadinum {
+	font-size: 12px;
+}
+
+.yanzheng .btn-default {
+	margin-top: 10px;
+}
+
+.success {
+	padding: 1% 2% 3%;
+}
+
+.success p {
+	color: #666
+}
+
+.successstyle {
+	background: url(../images/icon/suyun/right.png) no-repeat left center;
+	padding: 10px 5%;
+	color: #0078ff;
+	font-family: "微软雅黑";
+	font-size: 28px;
+}
+
+.success .btn {
+	font-family: "宋体";
+}
+
+footer {
+	font-size: 12px;
+	color: #666;
+}
+

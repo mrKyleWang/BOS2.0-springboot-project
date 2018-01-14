@@ -1,0 +1,38 @@
+.clearfix {
+	clear: both
+}
+.promotions {
+	padding: 1%;
+	font-family: "微软雅黑";
+}
+
+.title {
+	color: #333;
+	font-size:20px;
+	background: #eaeaea;
+	padding: 5px 15px;
+	line-height: 30px;
+}
+
+.promotions .prolist .title {
+	color: #333
+}
+
+.promotions .procontent .title {
+	color: #000
+}
+
+.promotions .procontent .intro {
+	color: #888;
+	padding: 5px 15px;
+}
+
+.promotions .procontent .promotionbox {
+	padding: 5px 15px;
+}
+
+.promotions .partline {
+	height: 2px;
+	background: url(../images/icon/partline.png) repeat-x;
+	padding: 7px 0;
+}

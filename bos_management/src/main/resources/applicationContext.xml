@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:jpa="http://www.springframework.org/schema/data/jpa"
+       xsi:schemaLocation="
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
+		http://www.springframework.org/schema/data/jpa 
+		http://www.springframework.org/schema/data/jpa/spring-jpa.xsd">
+
+    <!-- 扫描 @Server @Controller @Repository -->
+    <context:component-scan base-package="top.kylewang"/>
+
+    <!-- 加载properties文件 -->
+    <context:property-placeholder location="classpath:config.properties"/>
+
+    <!--配置管理事务-->
+    <tx:annotation-driven transaction-manager="transactionManager" proxy-target-class="true"/>
+
+    <!--配置jpa repository包扫描-->
+    <jpa:repositories base-package="top.kylewang.bos.dao"/>
+
+    <!--导入数据库配置-->
+    <import resource="applicationContext-dataSource.xml"/>
+
+    <!--导入webService配置-->
+    <import resource="applicationContext-webService.xml"/>
+
+    <!--导入quartz配置-->
+    <import resource="applicationContext-quartz.xml"/>
+
+    <!--导入mq配置-->
+    <import resource="applicationContext-mq.xml"/>
+
+    <!--导入elasticsearch配置-->
+    <import resource="applicationContext-elasticsearch.xml"/>
+
+    <!--导入shiro配置-->
+    <import resource="applicationContext-shiro.xml"/>
+
+    <!--导入ehcache配置-->
+    <import resource="applicationContext-cache.xml"/>
+
+</beans>
