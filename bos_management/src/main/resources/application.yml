@@ -1,0 +1,20 @@
+server:
+  port: 9001
+  context-path: /bos
+spring:
+  datasource:
+    driver-class-name: oracle.jdbc.driver.OracleDriver
+    url: jdbc:oracle:thin:@localhost:1521:orcl
+    username: bos
+    password: bos
+  jpa:
+    show-sql: true
+  jackson:
+    default-property-inclusion: non_null
+
+  devtools:
+    restart:
+      enabled: true
+
+
+
