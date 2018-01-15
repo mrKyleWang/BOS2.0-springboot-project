@@ -158,6 +158,7 @@
 					pagination : true,
 					toolbar : toolbar,
 					url : "../../data/sub_area.json",
+                    method : 'get',
 					idField : 'id',
 					columns : columns,
 					onDblClickRow : doDblClickRow
@@ -223,7 +224,7 @@
 						<tr>
 							<td>选择区域</td>
 							<td>
-								<input class="easyui-combobox" name="area.id" data-options="valueField:'id',textField:'name',url:'../../data/area.json'" />
+								<input class="easyui-combobox" name="area.id" data-options="valueField:'id',textField:'name',url:'../../data/area.json',method : 'get'" />
 							</td>
 						</tr>
 						<tr>
