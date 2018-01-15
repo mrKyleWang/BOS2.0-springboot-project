@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>top.kylewang.maven</groupId>
+        <groupId>top.kylewang.bos</groupId>
         <artifactId>common_parent</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
@@ -14,12 +14,12 @@
     <description>物流前端系统</description>
     <dependencies>
         <dependency>
-            <groupId>top.kylewang.maven</groupId>
+            <groupId>top.kylewang.bos</groupId>
             <artifactId>crm_domain</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
         <dependency>
-            <groupId>top.kylewang.maven</groupId>
+            <groupId>top.kylewang.bos</groupId>
             <artifactId>bos_domain</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>

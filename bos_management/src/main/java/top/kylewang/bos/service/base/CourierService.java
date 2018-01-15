@@ -24,7 +24,7 @@ public interface CourierService {
      * @param pageable
      * @return
      */
-    Page<Courier> findPageData(Specification<Courier> specification,Pageable pageable);
+    Page<Courier> findPageData(Specification<Courier> specification, Pageable pageable);
 
     /**
      * 批量作废

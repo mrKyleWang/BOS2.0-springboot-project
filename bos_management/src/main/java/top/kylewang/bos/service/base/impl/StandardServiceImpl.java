@@ -31,7 +31,6 @@ public class StandardServiceImpl implements StandardService{
     }
 
     @Override
-    @Cacheable(value = "standard",key = "pageable.pageNumber+'_'+pageable.pageSize")
     public Page<Standard> pageQuery(Pageable pageable) {
         return standardRepository.findAll(pageable);
     }

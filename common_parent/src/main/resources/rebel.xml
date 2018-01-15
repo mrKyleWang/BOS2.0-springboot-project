@@ -7,7 +7,7 @@
 <application generated-by="intellij" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.zeroturnaround.com" xsi:schemaLocation="http://www.zeroturnaround.com http://update.zeroturnaround.com/jrebel/rebel-2_1.xsd">
 
 	<classpath>
-		<dir name="D:/GitHub/BOS2.0-project/common_parent/target/classes">
+		<dir name="D:/GitHub/BOS2.0-springboot-project/common_parent/target/classes">
 		</dir>
 	</classpath>
 
