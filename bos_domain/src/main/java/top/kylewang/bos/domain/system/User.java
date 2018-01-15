@@ -1,6 +1,6 @@
 package top.kylewang.bos.domain.system;
 
-import org.apache.struts2.json.annotations.JSON;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -114,7 +114,7 @@ public class User implements Serializable {
 		this.nickname = nickname;
 	}
 
-	@JSON(serialize = false)
+	@JsonIgnore
 	public Set<Role> getRoles() {
 		return roles;
 	}

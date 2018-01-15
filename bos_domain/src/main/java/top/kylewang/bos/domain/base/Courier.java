@@ -1,6 +1,6 @@
 package top.kylewang.bos.domain.base;
 
-import org.apache.struts2.json.annotations.JSON;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 import java.util.HashSet;
@@ -134,7 +134,7 @@ public class Courier {
 		this.vehicleNum = vehicleNum;
 	}
 
-	@JSON(serialize = false)
+	@JsonIgnore
 	public Set<FixedArea> getFixedAreas() {
 		return fixedAreas;
 	}

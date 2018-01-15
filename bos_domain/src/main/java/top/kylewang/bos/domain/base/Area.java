@@ -1,6 +1,6 @@
 package top.kylewang.bos.domain.base;
 
-import org.apache.struts2.json.annotations.JSON;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -91,7 +91,7 @@ public class Area {
 		this.shortcode = shortcode;
 	}
 
-	@JSON(serialize = false)
+	@JsonIgnore
 	public Set<SubArea> getSubareas() {
 		return subareas;
 	}

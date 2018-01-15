@@ -1,6 +1,6 @@
 package top.kylewang.bos.domain.base;
 
-import org.apache.struts2.json.annotations.JSON;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -89,7 +89,7 @@ public class FixedArea {
 		this.operator = operator;
 	}
 
-	@JSON(serialize = false)
+	@JsonIgnore
 	public Set<SubArea> getSubareas() {
 		return subareas;
 	}
@@ -98,7 +98,7 @@ public class FixedArea {
 		this.subareas = subareas;
 	}
 
-	@JSON(serialize = false)
+	@JsonIgnore
 	public Set<Courier> getCouriers() {
 		return couriers;
 	}

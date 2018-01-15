@@ -1,6 +1,6 @@
 package top.kylewang.bos.domain.system;
 
-import org.apache.struts2.json.annotations.JSON;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -52,7 +52,7 @@ public class Permission implements Serializable {
 		this.keyword = keyword;
 	}
 
-	@JSON(serialize = false)
+	@JsonIgnore
 	public Set<Role> getRoles() {
 		return roles;
 	}
