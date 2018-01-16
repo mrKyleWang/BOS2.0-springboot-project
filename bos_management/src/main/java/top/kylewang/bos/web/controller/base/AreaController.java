@@ -45,6 +45,10 @@ public class AreaController {
         this.file = file;
     }
 
+    /**
+     * 批量导入
+     * @throws IOException
+     */
     @RequestMapping("area_batchImport.action")
     public void batchImport() throws IOException {
         HSSFWorkbook workbook = new HSSFWorkbook(new FileInputStream(file));

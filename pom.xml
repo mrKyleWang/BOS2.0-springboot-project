@@ -2,11 +2,11 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>top.kylewang.bos</groupId>
-    <artifactId>common_parent</artifactId>
+    <artifactId>my_bos</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>pom</packaging>
-    <name>common_parent</name>
-    <description>bos v2.0综合平台的公共父项目，用于统一依赖管理</description>
+    <name>mybos</name>
+    <description>bos v2.0综合平台</description>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -15,6 +15,15 @@
         <relativePath/>
     </parent>
 
+
+    <properties>
+        <jaxrs.version>3.1.11</jaxrs.version>
+        <jna.version>3.0.9</jna.version>
+        <ojdbc6.version>11.2.0.1.0</ojdbc6.version>
+        <shiro.version>1.2.3</shiro.version>
+        <pinyin4j.version>2.5.0</pinyin4j.version>
+        <poi.version>3.11</poi.version>
+    </properties>
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>

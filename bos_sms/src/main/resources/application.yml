@@ -1,0 +1,10 @@
+server:
+  port: 9004
+  context-path: /sms
+
+  devtools:
+    restart:
+      enabled: true
+
+
+

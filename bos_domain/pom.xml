@@ -5,7 +5,7 @@
 
     <parent>
         <groupId>top.kylewang.bos</groupId>
-        <artifactId>common_parent</artifactId>
+        <artifactId>my_bos</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
