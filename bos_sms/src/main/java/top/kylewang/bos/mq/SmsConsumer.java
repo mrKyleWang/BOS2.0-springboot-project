@@ -1,5 +1,6 @@
 package top.kylewang.bos.mq;
 
+import org.springframework.jms.annotation.JmsListener;
 import org.springframework.stereotype.Service;
 import top.kylewang.bos.utils.SmsUtils;
 
@@ -13,7 +14,9 @@ import javax.jms.MessageListener;
  */
 @Service
 public class SmsConsumer implements MessageListener{
+
     @Override
+    @JmsListener(destination = "bos_sms")
     public void onMessage(Message message) {
         MapMessage mapMessage = (MapMessage) message;
         try {

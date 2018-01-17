@@ -104,7 +104,7 @@ public class CourierController{
      * @param response
      * @throws IOException
      */
-    @RequestMapping("courier_delBatch.action")
+    @RequestMapping("/courier_delBatch.action")
     public void delBatch(String ids, HttpServletResponse response) throws IOException {
 
         String[] idArray = ids.split(",");
