@@ -1,0 +1,17 @@
+server:
+  port: 9003
+  context-path: /fore
+spring:
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    database: 0
+  jackson:
+    default-property-inclusion: non_null
+  devtools:
+    restart:
+      enabled: true
+  data:
+    redis:
+      repositories:
+        enabled: true
