@@ -1,5 +1,6 @@
 package top.kylewang.crm.domain;
 
+
 import javax.persistence.*;
 import javax.xml.bind.annotation.XmlRootElement;
 import java.util.Date;

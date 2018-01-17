@@ -9,31 +9,20 @@
     </parent>
 
     <artifactId>bos_fore</artifactId>
-    <packaging>war</packaging>
+    <packaging>jar</packaging>
     <name>bos_fore</name>
     <description>物流前端系统</description>
+
     <dependencies>
         <dependency>
             <groupId>top.kylewang.bos</groupId>
             <artifactId>crm_domain</artifactId>
             <version>0.0.1-SNAPSHOT</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>*</groupId>
-                    <artifactId>*</artifactId>
-                </exclusion>
-            </exclusions>
         </dependency>
         <dependency>
             <groupId>top.kylewang.bos</groupId>
             <artifactId>bos_domain</artifactId>
             <version>0.0.1-SNAPSHOT</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>*</groupId>
-                    <artifactId>*</artifactId>
-                </exclusion>
-            </exclusions>
         </dependency>
 
         <dependency>
@@ -55,7 +44,7 @@
         <dependency>
             <groupId>org.apache.cxf</groupId>
             <artifactId>cxf-spring-boot-starter-jaxrs</artifactId>
-            <version>${jaxrs.version}</version>
+            <version>${boot-starter-jaxrs.version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>

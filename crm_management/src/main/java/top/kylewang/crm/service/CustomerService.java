@@ -9,7 +9,8 @@ import java.util.List;
  * @author Kyle.Wang
  * 2017/12/31 0031 16:12
  */
-    public interface CustomerService {
+@Path("/customerService")
+public interface CustomerService {
 
     /**
      * 查询所有未关联客户列表
@@ -17,7 +18,7 @@ import java.util.List;
      */
     @Path("/noassociationcustomers")
     @GET
-    @Produces({"application/xml","application/json"})
+    @Produces({"application/xml", "application/json"})
     List<Customer> findNoAssociationCustomers();
 
     /**
@@ -27,7 +28,7 @@ import java.util.List;
      */
     @Path("associationfixedareacustomers/{fixedareaid}")
     @GET
-    @Produces({"application/xml","application/json"})
+    @Produces({"application/xml", "application/json"})
     List<Customer> findAssociationFixedAreaCustomers(@PathParam("fixedareaid") String fixedAreaId);
 
     /**
@@ -37,10 +38,8 @@ import java.util.List;
      */
     @Path("associationcustomerstofixedarea")
     @PUT
-    @Produces({"application/xml","application/json"})
-    void associationCustomersToFixedArea(
-            @QueryParam("customerIdStr") String customerIdStr,
-            @QueryParam("fixedAreaId") String fixedAreaId);
+    @Produces({"application/xml", "application/json"})
+    void associationCustomersToFixedArea(@QueryParam("customerIdStr") String customerIdStr, @QueryParam("fixedAreaId") String fixedAreaId);
 
 
     /**
@@ -49,7 +48,7 @@ import java.util.List;
      */
     @Path("/customer")
     @POST
-    @Consumes({"application/xml","application/json"})
+    @Consumes({"application/xml", "application/json"})
     void register(Customer customer);
 
 
@@ -60,7 +59,7 @@ import java.util.List;
      */
     @Path("/customer/telephone/{telephone}")
     @GET
-    @Consumes({"application/xml","application/json"})
+    @Consumes({"application/xml", "application/json"})
     Customer findByTelephone(@PathParam("telephone") String telephone);
 
 
@@ -70,7 +69,7 @@ import java.util.List;
      */
     @Path("/customer/updatetype/{telephone}")
     @PUT
-    @Consumes({"application/xml","application/json"})
+    @Consumes({"application/xml", "application/json"})
     void updateType(@PathParam("telephone") String telephone);
 
 
@@ -82,9 +81,8 @@ import java.util.List;
      */
     @Path("/customer/login")
     @GET
-    @Consumes({"application/xml","application/json"})
-    Customer login(@QueryParam("telephone") String telephone,
-                   @QueryParam("password") String password);
+    @Consumes({"application/xml", "application/json"})
+    Customer login(@QueryParam("telephone") String telephone, @QueryParam("password") String password);
 
 
     /**
@@ -94,7 +92,7 @@ import java.util.List;
      */
     @Path("/customer/findFixedAreaIdByAddress")
     @GET
-    @Consumes({"application/xml","application/json"})
+    @Consumes({"application/xml", "application/json"})
     String findFixedAreaIdByAddress(@QueryParam("address") String address);
 
 }

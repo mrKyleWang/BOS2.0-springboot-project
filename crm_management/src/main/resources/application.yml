@@ -1,0 +1,23 @@
+
+server:
+  port: 9002
+  context-path: /crm
+spring:
+  datasource:
+    driver-class-name: oracle.jdbc.driver.OracleDriver
+    url: jdbc:oracle:thin:@localhost:1521:orcl
+    username: crm
+    password: crm
+  jpa:
+    show-sql: true
+  jackson:
+    default-property-inclusion: non_null
+  devtools:
+    restart:
+      enabled: true
+cxf:
+  path: /services
+  servlet.init:
+    service-list-path: /info
+  jaxrs:
+    component-scan: true
