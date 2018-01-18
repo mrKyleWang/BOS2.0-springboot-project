@@ -9,14 +9,28 @@ import org.junit.Test;
 public class TestDemo {
 
     @Test
-    public void test(){
-        String s1 = "abc";		//存储在常量池
-        String s2 = "abc";		//存储在常量池
-        String s3 = new String ("abc");	//存储在堆
+    public void test() {
+        System.out.println(inverseString("abcde"));
+    }
 
-        System.out.println(s1 == s2);		// true
-        System.out.println(s1 == s3);		// false
-        // intern方法为本地方法:将内存转移到常量池中
-        System.out.println(s1 == s3.intern());		// true
+    public String inverseString(String source) {
+        StringBuilder stringBuilder = new StringBuilder();
+        char[] chars = source.toCharArray();
+        for (int i = chars.length - 1; i >= 0; i--) {
+            stringBuilder.append(chars[i]);
+        }
+        return stringBuilder.toString();
+    }
+}
+
+class SingleClass {
+
+    private SingleClass(){
+    }
+
+    private static final SingleClass singleClass= new SingleClass();
+
+    public static SingleClass getSingleClass() {
+        return singleClass;
     }
 }

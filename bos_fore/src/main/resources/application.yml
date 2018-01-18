@@ -15,3 +15,8 @@ spring:
     redis:
       repositories:
         enabled: true
+  freemarker:
+    cache: true
+    charset: UTF-8
+    content-type: text/html
+    template-loader-path: classpath:/templates/

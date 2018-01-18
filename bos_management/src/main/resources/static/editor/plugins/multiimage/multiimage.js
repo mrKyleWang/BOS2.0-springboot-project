@@ -21,7 +21,7 @@ K.extend(KSWFUpload, {
 		};
 		self.options = options;
 		self.progressbars = {};
-		// template
+		// templates
 		self.div = K(options.container).html([
 			'<div class="ke-swfupload">',
 			'<div class="ke-swfupload-top">',

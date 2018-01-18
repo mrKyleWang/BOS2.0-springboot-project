@@ -1,7 +1,9 @@
 package top.kylewang.crm;
 
+import com.fasterxml.jackson.jaxrs.json.JacksonJaxbJsonProvider;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
 
 /**
  * @author Kyle.Wang
@@ -15,4 +17,8 @@ public class CrmManagementApplication {
 		SpringApplication.run(CrmManagementApplication.class, args);
 	}
 
+	@Bean
+	public JacksonJaxbJsonProvider jacksonJaxbJsonProvider() {
+		return new JacksonJaxbJsonProvider();
+	}
 }
