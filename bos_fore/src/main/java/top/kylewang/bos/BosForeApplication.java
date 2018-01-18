@@ -14,4 +14,5 @@ public class BosForeApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(BosForeApplication.class, args);
 	}
+
 }

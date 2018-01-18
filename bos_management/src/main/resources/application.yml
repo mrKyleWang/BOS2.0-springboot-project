@@ -1,6 +1,7 @@
 server:
   port: 9001
   context-path: /bos
+
 spring:
   datasource:
     driver-class-name: oracle.jdbc.driver.OracleDriver
@@ -11,7 +12,17 @@ spring:
     show-sql: true
   jackson:
     default-property-inclusion: non_null
-
+  data:
+    elasticsearch:
+      cluster-nodes: localhost:9300
   devtools:
     restart:
       enabled: true
+
+cxf:
+  path: /services
+  servlet.init:
+    service-list-path: /info
+  jaxrs:
+    component-scan: true
+
