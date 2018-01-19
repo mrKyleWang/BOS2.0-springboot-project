@@ -18,6 +18,9 @@ spring:
   devtools:
     restart:
       enabled: true
+  http:
+    multipart:
+      max-file-size: 10Mb
 
 cxf:
   path: /services

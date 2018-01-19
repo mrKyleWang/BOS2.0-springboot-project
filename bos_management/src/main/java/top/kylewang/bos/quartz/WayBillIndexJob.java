@@ -16,6 +16,6 @@ public class WayBillIndexJob{
 
     public void syncIndex(){
         System.out.println("同步运单索引库处理程序执行....");
-        wayBillService.syncIndex();
+//        wayBillService.syncIndex();
     }
 }

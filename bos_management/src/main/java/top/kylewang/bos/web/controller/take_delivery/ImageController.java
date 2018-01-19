@@ -1,9 +1,9 @@
 package top.kylewang.bos.web.controller.take_delivery;
 
-import org.apache.commons.io.FileUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.File;
@@ -22,18 +22,16 @@ public class ImageController {
     /**
      * 图片上传
      * @param imgFile
-     * @param imgFileFileName
-     * @param imgFileContentType
      * @param request
      * @return
      * @throws IOException
      */
     @RequestMapping("/image_upload.action")
     @ResponseBody
-    public Map<String,Object> upload(File imgFile, String imgFileFileName, String imgFileContentType, HttpServletRequest request) throws IOException {
+    public Map<String,Object> upload(MultipartFile imgFile, HttpServletRequest request) throws IOException {
         System.out.println("文件:"+imgFile);
-        System.out.println("文件名:"+imgFileFileName);
-        System.out.println("文件类型:"+imgFileContentType);
+        System.out.println("文件名:"+imgFile.getOriginalFilename());
+        System.out.println("文件类型:"+imgFile.getContentType());
 
         // 服务器保存路径(绝对路径)
         String savePath = request.getServletContext().getRealPath("/upload");
@@ -43,11 +41,11 @@ public class ImageController {
         // 生成随机图片名
         UUID uuid = UUID.randomUUID();
         // 文件扩展名
-        String ext = imgFileFileName.substring(imgFileFileName.lastIndexOf("."));
+        String ext = imgFile.getOriginalFilename().substring(imgFile.getOriginalFilename().lastIndexOf("."));
         // 保存图片名
         String saveFileName = uuid+ext;
         // 保存图片
-        FileUtils.copyFile(imgFile, new File(savePath +"/"+ saveFileName));
+        imgFile.transferTo(new File("/upload/"+ saveFileName));
         // 向浏览器响应响应数据
         Map<String,Object> result  = new HashMap<>(4);
         result.put("error",0);
