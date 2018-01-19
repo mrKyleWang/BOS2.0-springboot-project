@@ -54,6 +54,7 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-devtools</artifactId>
@@ -87,6 +88,12 @@
             <groupId>org.apache.shiro</groupId>
             <artifactId>shiro-spring</artifactId>
             <version>${shiro.version}</version>
+        </dependency>
+        <!--quartz-->
+        <dependency>
+            <groupId>org.quartz-scheduler</groupId>
+            <artifactId>quartz</artifactId>
+            <version>2.2.1</version>
         </dependency>
         <!--pinyin4j-->
         <dependency>
@@ -122,12 +129,12 @@
             <artifactId>itextpdf</artifactId>
             <version>${itext.version}</version>
         </dependency>
-
         <dependency>
             <groupId>com.itextpdf</groupId>
             <artifactId>itext-asian</artifactId>
             <version>${itext.version}</version>
         </dependency>
+
     </dependencies>
 
     <build>
