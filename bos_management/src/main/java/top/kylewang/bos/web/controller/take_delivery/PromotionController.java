@@ -1,13 +1,14 @@
 package top.kylewang.bos.web.controller.take_delivery;
 
-import org.apache.commons.io.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.ResourceLoader;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 import top.kylewang.bos.domain.take_delivery.Promotion;
 import top.kylewang.bos.service.take_delivery.PromotionService;
 
@@ -29,27 +30,32 @@ public class PromotionController{
     @Autowired
     private PromotionService promotionService;
 
+    private final ResourceLoader resourceLoader;
+
+    @Autowired
+    public PromotionController(ResourceLoader resourceLoader) {
+        this.resourceLoader = resourceLoader;
+    }
+
     /**
      * 宣传活动保存
      * @param promotion
      * @param titleImgFile
-     * @param titleImgFileFileName
      * @param request
      * @param response
      * @throws IOException
      */
     @RequestMapping("promotion_save.action")
-    public void save(Promotion promotion,File titleImgFile,String titleImgFileFileName,HttpServletRequest request, HttpServletResponse response) throws IOException {
-        // 服务器保存路径(绝对路径)
-        String savePath = request.getServletContext().getRealPath("/upload");
+    public void save(Promotion promotion, MultipartFile titleImgFile, HttpServletRequest request, HttpServletResponse response) throws IOException {
         // 用户访问路径(相对路径)
         String saveUrl = request.getContextPath()+"/upload";
         // 生成随机文件名
         UUID uuid = UUID.randomUUID();
-        String ext = titleImgFileFileName.substring(titleImgFileFileName.lastIndexOf("."));
+        String ext = titleImgFile.getOriginalFilename().substring(titleImgFile.getOriginalFilename().lastIndexOf("."));
         String saveFileName = uuid+ext;
         // 保存文件
-        FileUtils.copyFile(titleImgFile, new File(savePath + "/" + saveFileName));
+        File absoluteFile = new File("upload/"+ saveFileName).getAbsoluteFile();
+        titleImgFile.transferTo(absoluteFile);
         // 补全属性
         promotion.setTitleImg(saveUrl+"/"+saveFileName);
         // 调用Service保存Promotion对象
