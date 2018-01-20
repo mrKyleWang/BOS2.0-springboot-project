@@ -1,13 +1,19 @@
 package top.kylewang.bos.web.controller.take_delivery;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.ResourceLoader;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Paths;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
@@ -19,6 +25,13 @@ import java.util.*;
 public class ImageController {
 
 
+    private final ResourceLoader resourceLoader;
+
+    @Autowired
+    public ImageController(ResourceLoader resourceLoader) {
+        this.resourceLoader = resourceLoader;
+    }
+
     /**
      * 图片上传
      * @param imgFile
@@ -29,13 +42,7 @@ public class ImageController {
     @RequestMapping("/image_upload.action")
     @ResponseBody
     public Map<String,Object> upload(MultipartFile imgFile, HttpServletRequest request) throws IOException {
-        System.out.println("文件:"+imgFile);
-        System.out.println("文件名:"+imgFile.getOriginalFilename());
-        System.out.println("文件类型:"+imgFile.getContentType());
 
-        // 服务器保存路径(绝对路径)
-        String savePath = request.getServletContext().getRealPath("/upload");
-        // 用户访问路径(相对路径)
         String saveUrl = request.getContextPath()+"/upload";
         System.out.println(saveUrl);
         // 生成随机图片名
@@ -45,12 +52,29 @@ public class ImageController {
         // 保存图片名
         String saveFileName = uuid+ext;
         // 保存图片
-        imgFile.transferTo(new File("/upload/"+ saveFileName));
+        File absoluteFile = new File("upload/"+ saveFileName).getAbsoluteFile();
+        imgFile.transferTo(absoluteFile);
         // 向浏览器响应响应数据
         Map<String,Object> result  = new HashMap<>(4);
         result.put("error",0);
         result.put("url",saveUrl+"/"+saveFileName);
         return result;
+    }
+
+    /**
+     * 图片显示
+     * @param filename
+     * @return
+     */
+    @RequestMapping(method = RequestMethod.GET, value = "/upload/{filename:.+}")
+    @ResponseBody
+    public ResponseEntity<?> getFile(@PathVariable String filename) {
+
+        try {
+            return ResponseEntity.ok(resourceLoader.getResource("file:" + Paths.get("upload", filename).toString()));
+        } catch (Exception e) {
+            return ResponseEntity.notFound().build();
+        }
     }
 
     /**
@@ -63,7 +87,7 @@ public class ImageController {
     public Map<String, Object> manage(HttpServletRequest request) {
         // 图片根目录路径
         String rootPath = request.getServletContext().getRealPath("/upload/");
-        File directory = new File(rootPath);
+        File directory = new File("upload/").getAbsoluteFile();
         // 根目录url
         String rootUrl = request.getContextPath()+"/upload/";
         // 图片扩展名
@@ -94,7 +118,7 @@ public class ImageController {
             }
         }
         // 返回页面所需数据
-        Map<String, Object> result = new HashMap<>();
+        Map<String, Object> result = new HashMap<>(8);
         result.put("moveup_dir_path", "");
         result.put("current_dir_path", rootPath);
         result.put("current_url", rootUrl);
