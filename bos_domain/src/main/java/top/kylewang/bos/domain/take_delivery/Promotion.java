@@ -1,5 +1,6 @@
 package top.kylewang.bos.domain.take_delivery;
 
+import org.springframework.format.annotation.DateTimeFormat;
 import top.kylewang.bos.constants.Constants;
 
 import javax.persistence.*;
@@ -28,10 +29,13 @@ public class Promotion implements Serializable {
 	@Column(name = "C_ACTIVE_SCOPE")
 	private String activeScope;// 活动范围
 	@Column(name = "C_START_DATE")
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date startDate; // 发布时间
 	@Column(name = "C_END_DATE")
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date endDate; // 失效时间
 	@Column(name = "C_UPDATE_TIME")
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date updateTime; // 更新时间
 	@Column(name = "C_UPDATE_UNIT")
 	private String updateUnit; // 更新单位
