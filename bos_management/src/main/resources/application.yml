@@ -12,6 +12,8 @@ spring:
     show-sql: true
   jackson:
     default-property-inclusion: non_null
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
   data:
     elasticsearch:
       cluster-nodes: localhost:9300
