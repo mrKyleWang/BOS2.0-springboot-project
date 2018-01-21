@@ -13,7 +13,7 @@ public class MailUtils {
 	private static String username = "wk52525@126.com";
 	private static String password = "a458411066";
 	private static String from = "wk52525@126.com";
-	public static String activeUrl = "http://localhost:9003/fore/customer_activeMail";
+	public static String activeUrl = "http://localhost:9003/fore/customer_activeMail.action";
 
 	public static void sendMail(String subject, String content, String to) {
 		Properties props = new Properties();
