@@ -20,3 +20,8 @@ spring:
     charset: UTF-8
     content-type: text/html
     template-loader-path: classpath:/templates/
+  activemq:
+     broker-url: tcp://localhost:61616
+     user: admin
+     password: admin
+     in-memory: true
