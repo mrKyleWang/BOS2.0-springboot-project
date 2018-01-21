@@ -1,9 +1,12 @@
 package top.kylewang.bos.web.controller;
 
+import com.fasterxml.jackson.jaxrs.json.JacksonJaxbJsonProvider;
 import org.apache.commons.lang.RandomStringUtils;
 import org.apache.cxf.jaxrs.client.WebClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.http.ResponseEntity;
+import org.springframework.jms.JmsException;
 import org.springframework.jms.core.JmsTemplate;
 import org.springframework.jms.core.MessageCreator;
 import org.springframework.stereotype.Controller;
@@ -20,6 +23,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.ws.rs.core.MediaType;
 import java.io.IOException;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -35,6 +39,9 @@ public class CustomerController{
     @Autowired
     private RedisTemplate<String,String> redisTemplate;
 
+    @Autowired
+    private List<JacksonJaxbJsonProvider> jsonProvider;
+
     /**
      * 发送短信验证码
      * @param telephone
@@ -42,22 +49,28 @@ public class CustomerController{
      * @throws Exception
      */
     @RequestMapping("/customer_sendSms.action")
-    public void sendSms(String telephone, HttpServletRequest request) throws Exception {
-        // 生成短信验证码
-        String randomCode = RandomStringUtils.randomNumeric(6);
-        // 将短信验证码保存到session
-        request.getSession().setAttribute(telephone,randomCode);
-        System.out.println("短信验证码:"+randomCode);
-        // 调用MQ服务, 发送条消息
-        jmsTemplate.send("bos_sms", new MessageCreator() {
-            @Override
-            public Message createMessage(Session session) throws JMSException {
-                MapMessage mapMessage = session.createMapMessage();
-                mapMessage.setString("telephone",telephone);
-                mapMessage.setString("msg",randomCode);
-                return mapMessage;
-            }
-        });
+    public ResponseEntity sendSms(String telephone, HttpServletRequest request){
+        try {
+            // 生成短信验证码
+            String randomCode = RandomStringUtils.randomNumeric(6);
+            // 将短信验证码保存到session
+            request.getSession().setAttribute(telephone,randomCode);
+            System.out.println("短信验证码:"+randomCode);
+            // 调用MQ服务, 发送条消息
+            jmsTemplate.send("bos_sms", new MessageCreator() {
+                @Override
+                public Message createMessage(Session session) throws JMSException {
+                    MapMessage mapMessage = session.createMapMessage();
+                    mapMessage.setString("telephone",telephone);
+                    mapMessage.setString("msg",randomCode);
+                    return mapMessage;
+                }
+            });
+            return ResponseEntity.ok().build();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return ResponseEntity.status(500).build();
+        }
     }
 
     /**
@@ -80,7 +93,7 @@ public class CustomerController{
             response.sendRedirect("signup-success.html");
         }
         //调用crm服务保存customer对象
-        WebClient.create(Constants.CRM_MANAGEMENT_URL+"/services/customerService/customer")
+        WebClient.create(Constants.CRM_MANAGEMENT_URL+"/services/customerService/customer",jsonProvider)
                 .type(MediaType.APPLICATION_JSON_TYPE)
                 .post(customer);
         //生成激活码
@@ -111,12 +124,12 @@ public class CustomerController{
             response.getWriter().println("激活码无效,请登录系统,重新绑定邮箱!");
         }else{
             //激活码有效
-            Customer customer = WebClient.create(Constants.CRM_MANAGEMENT_URL+"/services/customerService/customer/telephone/" + telephone).
+            Customer customer = WebClient.create(Constants.CRM_MANAGEMENT_URL+"/services/customerService/customer/telephone/" + telephone,jsonProvider).
                     accept(MediaType.APPLICATION_JSON).get(Customer.class);
             if(customer.getType()==null||customer.getType()!=1){
                 //未绑定
                 //调用crm-webservice更新绑定状态
-                WebClient.create(Constants.CRM_MANAGEMENT_URL+"/services/customerService/customer/updatetype/" + telephone).put(null);
+                WebClient.create(Constants.CRM_MANAGEMENT_URL+"/services/customerService/customer/updatetype/" + telephone,jsonProvider).put(null);
                 response.getWriter().println("邮箱绑定成功!");
             }else{
                 //已绑定
@@ -137,7 +150,7 @@ public class CustomerController{
     @RequestMapping("/customer_login.action")
     public void login(Customer customer,HttpServletRequest request,HttpServletResponse response) throws IOException {
         Customer existCustomer = WebClient
-                .create(Constants.CRM_MANAGEMENT_URL+"/services/customerService/customer/login?telephone="+customer.getTelephone()+"&password="+customer.getPassword())
+                .create(Constants.CRM_MANAGEMENT_URL+"/services/customerService/customer/login?telephone="+customer.getTelephone()+"&password="+customer.getPassword(),jsonProvider)
                 .accept(MediaType.APPLICATION_JSON).get(Customer.class);
         if(existCustomer==null){
             response.sendRedirect("login.html");
