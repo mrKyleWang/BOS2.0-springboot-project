@@ -36,6 +36,7 @@
         <commons-lang.version>2.6</commons-lang.version>
         <commons-io.version>1.3.2</commons-io.version>
         <itext.version>5.2.0</itext.version>
+        <quartz.version>2.2.1</quartz.version>
     </properties>
 
     <build>

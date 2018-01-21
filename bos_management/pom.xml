@@ -93,7 +93,7 @@
         <dependency>
             <groupId>org.quartz-scheduler</groupId>
             <artifactId>quartz</artifactId>
-            <version>2.2.1</version>
+            <version>${quartz.version}</version>
         </dependency>
         <!--pinyin4j-->
         <dependency>
