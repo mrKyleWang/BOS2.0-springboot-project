@@ -93,11 +93,6 @@ public class CourierController{
         return result;
     }
 
-    private String ids;
-    public void setIds(String ids) {
-        this.ids = ids;
-    }
-
     /**
      * 批量作废快递员
      * @param ids

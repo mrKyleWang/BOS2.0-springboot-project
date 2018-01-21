@@ -12,6 +12,7 @@ import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 import top.kylewang.bos.domain.base.Area;
 import top.kylewang.bos.service.base.AreaService;
 import top.kylewang.bos.utils.PinYin4jUtils;
@@ -20,8 +21,6 @@ import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
-import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -39,19 +38,15 @@ public class AreaController {
     @Autowired
     private AreaService areaService;
 
-    private File file;
-
-    public void setFile(File file) {
-        this.file = file;
-    }
 
     /**
      * 批量导入
+     * @param file
      * @throws IOException
      */
     @RequestMapping("area_batchImport.action")
-    public void batchImport() throws IOException {
-        HSSFWorkbook workbook = new HSSFWorkbook(new FileInputStream(file));
+    public void batchImport(MultipartFile file) throws IOException {
+        HSSFWorkbook workbook = new HSSFWorkbook(file.getInputStream());
         HSSFSheet sheet = workbook.getSheetAt(0);
         List<Area> list = new ArrayList<>();
         for (Row cells : sheet) {
