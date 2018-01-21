@@ -27,7 +27,7 @@
         <boot-starter-jaxrs.version>3.2.0</boot-starter-jaxrs.version>
         <jna.version>3.0.9</jna.version>
         <ojdbc6.version>11.2.0.1.0</ojdbc6.version>
-        <shiro.version>1.2.3</shiro.version>
+        <shiro.version>1.4.0</shiro.version>
         <pinyin4j.version>2.5.0</pinyin4j.version>
         <poi.version>3.11</poi.version>
         <httpclient.version>4.5.3</httpclient.version>

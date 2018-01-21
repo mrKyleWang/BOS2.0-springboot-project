@@ -45,7 +45,7 @@
 								<input id="inputValidate" type="text" class="form-control" placeholder="请输入验证码">
 							</div>
 							<div class="col-sm-4">
-								<img id="loginform:vCode" src="validatecode.jsp"  onclick="javascript:document.getElementById('loginform:vCode'). src='validatecode.jsp?'+Math.random();" />
+								<img id="checkCode" src="checkCode.action"  onclick="javascript:$('#checkCode').attr('src', 'checkCode.action?timestamp=' + (new Date()).valueOf());" />
 							</div>
 						</div>
 						<div class="form-group">
